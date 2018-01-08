@@ -498,7 +498,7 @@ public class ClassFileParser {
 		ElementValueNames.getType(entry.getElementValueType()).ifPresent(type -> {
 			out.textPrintln(StackMapFrameNames.NAME, type.getName(), SPACE, BEGIN).indentDown();
 			String[] itemNames = type.getItemNames();
-			out.textPrint(itemNames[0]).println(type.getTag());
+			out.textPrint(ElementValueNames.TAG, SPACE).println(type.getTag());
 			if ((type == ElementValueNames.Type.BYTE)
 					|| (type == ElementValueNames.Type.CHAR)
 					|| (type == ElementValueNames.Type.DOUBLE)
@@ -509,22 +509,22 @@ public class ClassFileParser {
 					|| (type == ElementValueNames.Type.BOOLEAN)
 					|| (type == ElementValueNames.Type.STRING)) {
 				SimpleElementValue elem = (SimpleElementValue) entry;
-				out.textPrint(itemNames[1]).println((short) elem.getIndex());
+				out.textPrint(itemNames[0]).println((short) elem.getIndex());
 			} else if (type == ElementValueNames.Type.ENUM) {
 				EnumElementValue elem = (EnumElementValue) entry;
-				out.textPrint(itemNames[1]).println((short) elem.getTypeIndex());
-				out.textPrint(itemNames[2]).println((short) elem.getValueIndex());
+				out.textPrint(itemNames[0]).println((short) elem.getTypeIndex());
+				out.textPrint(itemNames[1]).println((short) elem.getValueIndex());
 			} else if (type == ElementValueNames.Type.CLASS) {
 				ClassElementValue elem = (ClassElementValue) entry;
-				out.textPrint(itemNames[1]).println((short) elem.getIndex());
+				out.textPrint(itemNames[0]).println((short) elem.getIndex());
 			} else if (type == ElementValueNames.Type.ANNOTATION) {
 				AnnotationElementValue elem = (AnnotationElementValue) entry;
 				printAnnoation(elem.getAnnotationEntry(), out);
 			} else if (type == ElementValueNames.Type.ARRAY) {
 				ArrayElementValue elem = (ArrayElementValue) entry;
-				out.textPrint(itemNames[1]).println((short) elem.getElementValuesArray().length);
+				out.textPrint(itemNames[0]).println((short) elem.getElementValuesArray().length);
 				if (0 < elem.getElementValuesArray().length) {
-					out.textPrintln(itemNames[2], BEGIN).indentDown();
+					out.textPrintln(itemNames[1], BEGIN).indentDown();
 					Arrays.asList(elem.getElementValuesArray()).forEach(e -> printElementValue(e, out));
 					out.indentUp().textPrintln(END);
 				}
