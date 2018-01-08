@@ -28,7 +28,6 @@ build/
 
 # Include all under dir
 !sample/*
-!release/*
 
 # Gradle
 .gradle

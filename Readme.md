@@ -9,7 +9,9 @@ To print parsed byte-sequence of JavaClassFile according to the JVM Specificatio
 <!-- [This Github wiki](./wiki/Home.md) -->
 [This Github wiki (Home_JP)](./wiki/Home_JP.md)
 
-### Release (or Beta)
+### (Pre)Release
+
+[This Github release](https://github.com/ZiTsP/JClassFileParser/releases)
 
 ### Info
 
