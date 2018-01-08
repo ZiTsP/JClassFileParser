@@ -27,7 +27,7 @@ bin/
 build/
 
 # Include all under the SAMPLE dir
-!sample/
+!sample/*
 
 # Gradle
 .gradle
