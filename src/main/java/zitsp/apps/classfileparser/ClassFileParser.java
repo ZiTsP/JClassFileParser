@@ -474,7 +474,10 @@ public class ClassFileParser {
 				out.textPrint(itemNames[3]).println((short) typedAttr.getPMGClassIndex());
 			} else if (attrType == AttributeNames.Type.UNKNOWN) {
 				Unknown typedAttr = (Unknown) attr;
-				out.textPrint(itemNames[2]).println(typedAttr.getBytes());
+				byte[] bytes = typedAttr.getBytes();
+				if (bytes != null) {
+					out.textPrint(itemNames[2]).println(typedAttr.getBytes());
+				}
 			}
 			out.indentUp().textPrintln(END);
 		});
